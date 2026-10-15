@@ -6,7 +6,12 @@ spring:
           uri: lb://department-service
           predicates:
             - Path=/campus/api/departments/**
+          filters:
+            - StripPrefix=1
+        
         - id: teacher-route
           uri: lb://teacher-service
           predicates:
             - Path=/campus/api/teachers/**
+          filters:
+            - StripPrefix=1
