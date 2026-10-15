@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: department-route
+          uri: lb://department-service
+          predicates:
+            - Path=/campus/api/departments/**
+        - id: teacher-route
+          uri: lb://teacher-service
+          predicates:
+            - Path=/campus/api/teachers/**
